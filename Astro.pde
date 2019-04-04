@@ -29,6 +29,24 @@ void draw() {
     missle.render();
   }
   
+  
+  
+  for (int a = asteroids.size() -1; a >= 0; a--) {
+    Asteroid asteroid = asteroids.get(a);
+    
+    for (int m = missles.size() - 1; m >= 0; m--) {
+      Missle missle = missles.get(m);
+      
+      if (missle.hit(asteroid)) {
+        asteroids.remove(a);
+        missles.remove(m);
+      }
+      
+    }
+  }
+  
+  
+  
   rocket.turn();
   rocket.move();
   rocket.contain();

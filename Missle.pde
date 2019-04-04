@@ -20,4 +20,19 @@ class Missle {
     ellipse(location.x, location.y, 4, 4);
     popMatrix();
   }
+  
+  boolean hit(Asteroid a){
+    PVector missleLocation = location.copy();
+    PVector asteroidLocation = a.location.copy();
+    float asteroidRadius = a.radius();
+    
+    float distanceFromAsteroid = missleLocation.dist(asteroidLocation);
+      
+    if (distanceFromAsteroid < asteroidRadius) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
 }
