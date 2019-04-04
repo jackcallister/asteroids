@@ -2,12 +2,12 @@ Rocket rocket;
 ArrayList<Missle> missles = new ArrayList<Missle>();
 ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 
-float NUM_ASTEROIDS = 20;
+float NUM_ASTEROIDS = 10;
 
 void setup() {
   size(700, 700);
-  rocket = new Rocket(); 
-  
+  rocket = new Rocket();
+
   for (int i = 0; i < NUM_ASTEROIDS; i++) {
     asteroids.add(new Asteroid());
   }
@@ -19,6 +19,7 @@ void draw() {
   for (int i = 0; i < asteroids.size(); i++) {
     Asteroid asteroid = asteroids.get(i);
     asteroid.update();
+    asteroid.contain();
     asteroid.render();
   }
   
